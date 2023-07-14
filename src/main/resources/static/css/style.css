@@ -1,0 +1,6 @@
+@charset "UTF-8";
+header{height:100px;}
+.contents{min-height:500px;}
+footer{height:100px;}
+.sign-up-table th {background-color: gainsboro; text-align: center;}
+.sign-up-table {width: 600px;}
