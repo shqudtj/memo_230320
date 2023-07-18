@@ -1,0 +1,12 @@
+기획 -> DB 설계 -> URL 설계 -> 구현
+
+이클립스등 깔고 체크해볼것들
+- @ResponseBody return String => hello world
+- @ResponseBody return map => JOSN
+- @Controller return String => JSP
+    -src/main/webapp/WEB-INF/jsp/test/test3.jsp
+- DB 연결
+   - Mybatis
+   - JPA
+
+application.properties -> application.yml  을 요새 사용함
