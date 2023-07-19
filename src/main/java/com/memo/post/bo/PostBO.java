@@ -26,7 +26,7 @@ public class PostBO {
 		
 		// 이미지가 있으면 업로드 후 imagePath 받아옴
 		String imagePath = null;
-		return postMapper. ;
+		return postMapper.insertPost(userId, subject, content, file);
 	}
 	
 }
