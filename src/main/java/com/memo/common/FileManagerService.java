@@ -16,7 +16,7 @@ public class FileManagerService {
 	// 학원용
 	public static final String FILE_UPLOAD_PATH = "D:\\NBS\\6_spring_project\\memo\\workspace\\images/";
 	// 집윈도우용
-	//public static final String FILE_UPLOAD_PATH = "D:\\NBS\\6_spring_project\\memo\\workspace\\images/";
+	//public static final String FILE_UPLOAD_PATH = "E:\\개발\\6_memeoo\\workspace\\images/";
 	
 	// input: MulitpartFile(이미지 파일), loginId
 	// output: web image path(String)

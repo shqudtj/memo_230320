@@ -40,6 +40,7 @@
 			let subject = $('#subject').val().trim();
 			let content = $('#content').val();
 			let file = $('#file').val();	// 파일 경로 ex)C:\fakepath\서울특별시교육청남산도서관 장서 대출목록 (2023년 06월).csv
+			console.log(file);
 			
 			// validation check
 			if (!subject) {
