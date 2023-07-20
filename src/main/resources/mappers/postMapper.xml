@@ -42,7 +42,7 @@
  			#{userId}
  			, #{subject}
  			, #{content}
- 			, #{file}
+ 			, #{imagePath}
  			, NOW()
  			, NOW()
  		)

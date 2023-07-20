@@ -34,10 +34,11 @@ public class PostRestController {
 		int userId = (int)session.getAttribute("userId");
 		// 많은 이용자가 있는 경우는 integer로 해야하는데 혹시 로그아웃된 사람이 들어올수 잇어서
 		// 하지만 지금 프로젝트에서는 총괄체크할거기때문에 그대로 진행
+		String userLoginId = (String)session.getAttribute("userLoginId");
 		
 		
 		// db insert
-		postBO.addPost(userId, subject, content, file);
+		postBO.addPost(userId, userLoginId, subject, content, file);
 		
 		
 		Map<String, Object> result = new HashMap<>();

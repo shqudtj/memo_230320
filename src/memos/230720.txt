@@ -1,0 +1,8 @@
+MEMO
+- JPA : user
+- mybatis: post
+
+
+SNS
+- JPA: user, post
+- mybatis: comment, like

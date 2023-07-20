@@ -19,6 +19,7 @@ public interface PostMapper {
 	public int insertPost(
 			@Param("userId") int userId, 
 			@Param("subject") String subject, 
-			@Param("content") String content, 
-			@Param("file") MultipartFile file);
+			@Param("content") String content,
+			@Param("imagePath") String imagePath
+			);
 }
