@@ -35,8 +35,10 @@ public class PostBO {
 			imagePath = fileManager.saveFile(userLoginId, file);
 		}
 		
-		
 		return postMapper.insertPost(userId, subject, content, imagePath);
 	}
 	
+	public Post getPostByPostIdAndUserId(int postId, int userId) {
+		return postMapper.selectPostByPostIdAndUserId(postId, userId);
+	}
 }

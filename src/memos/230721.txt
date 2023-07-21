@@ -1,0 +1,9 @@
+memo 
+- 글 상세 뿌리기
+
+sns
+- 댓글 쓰기 api 먼저 -> get 방식으로 주소직접해서 db에 들어가는지 확인
+- 댓글 쓰기 javacript(댓글 내용 스크립트로 보내기)   
+	 ajax, postId, 댓글 내용
+- 댓글 목록 뿌리기
+- comment 테이블은 mybatis
