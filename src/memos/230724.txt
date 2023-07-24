@@ -1,0 +1,14 @@
+브라우저 -> TimelineController -> TimelineBO <-> PosBO -> PostRepository -> DB
+                                                            -> CommentBO -> UserBO
+보통 userBO가 낮음
+
+브라우저에 가까울수록 높음
+
+BO들이 서로를 부를 떄 발생하는 오류 - 이렇게 되지 않도록 정돈하고 해야함
+상호 참조 오류
+순환 참조 오류
+
+timelineBO 가 postrepository를 가지고 오고 싶으도 postBO를 가져와야 맞는거임
+
+댓글쓴이랑 session의 아이디가 일치하면 댓글삭제버튼이 보이게
+댓글내용뿌리기 댓글내용 삭제가 과제
