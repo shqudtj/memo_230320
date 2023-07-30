@@ -23,8 +23,32 @@
 			`post`
 		WHERE
 			`userId` = #{userId}
+		<if test="direction == null">
 		Order By `id` DESC
- 		
+		</if>
+		<if test="direction == 'next'">
+		<![CDATA[	
+			AND `id` < #{standardId}
+		]]>	
+		ORDER BY `id` DESC
+		</if>
+		<if test="direction == 'prev'">
+		<![CDATA[
+			AND `id` > #{standardId}
+		]]>
+		</if>
+ 		LIMIT ${limit}
+ 	</select>
+ 	
+ 	<select id="selectPostIdByUserIdAndSort" parameterType="map" resultType="int">
+ 		SELECT
+ 			`id`
+ 		FROM
+ 			`post`
+ 		WHERE
+ 			`userId` = #{userId}
+ 		ORDER BY `id` ${sort}
+ 		LIMIT 1
  	</select>
  	
  	<insert id="insertPost" parameterType="map">
@@ -64,5 +88,31 @@
 			`userId` = #{userId}
 			AND `id` = #{postId}
  	</select>
+ 	
+ 	<update id="updatePostByPostIdAndUserId" parameterType="map">
+ 	
+	 	UPDATE `post`
+	 	SET
+	 		`subject` = #{subject}
+	 		, `content` = #{content}
+	 		<!-- imagePath가 있을 때만 수정한다. -->
+	 		<if test="imagePath != null">
+	 		, `imagePath` = #{imagePath}
+	 		</if>
+	 		, `updatedAt` = NOW()
+	 	WHERE
+	 		`id` = #{postId}
+	 		AND `userId` = #{userId}
+ 	
+ 	</update>
+ 	
+ 	<delete id="deletePostByPostIdAndUserId" parameterType="map">
+ 	DELETE
+ 	FROM
+ 		`post`
+ 	WHERE
+ 		`id` = #{postId}
+ 		AND `userId` = #{userId}
+ 	</delete>
  	
  </mapper>
