@@ -1,0 +1,141 @@
+create table `user` (
+	`id` int not null auto_increment primary key
+    , `loginId` varchar(15) not null 
+    , `type` varchar(10) not null
+    , `password` varchar(256) not null
+    , `name` varchar(20) not null
+    , `phoneNumber` varchar(11) not null
+    , `email` varchar(80) not null
+    , `address` varchar(256) null
+    , `createdAt` timestamp default current_timestamp
+    , `updatedAt` timestamp default current_timestamp
+
+) engine=innodb default charset = utf8mb4; 
+
+
+
+create table `product` (
+	`id` int not null auto_increment primary key
+    , `userId` int not null
+    , `name` varchar(256) not null 
+    , `price` int not null
+    , `category` varchar(20) not null
+    , `mainImage` varchar(512) not null
+    , `explainImage` varchar(512) not null
+    , `quantity ` int not null
+    , `msDelivery` varchar(5) null
+    , `createdAt` timestamp default current_timestamp
+    , `updatedAt` timestamp default current_timestamp
+
+) engine=innodb default charset = utf8mb4; 
+
+create table `coupon` (
+	`id` int not null auto_increment primary key
+    , `name` varchar(128) not null 
+    , `dcPrice` int not null
+    , `dcConditions` varchar(128) not null
+    , `endDate` date not null
+    , `createdAt` timestamp default current_timestamp
+    , `updatedAt` timestamp default current_timestamp
+
+) engine=innodb default charset = utf8mb4; 
+
+create table `manager` (
+	`id` int not null auto_increment primary key
+    , `loginId` varchar(15) not null 
+    , `password` varchar(256) not null
+    , `name` varchar(20) not null
+    , `phoneNumber` varchar(11) not null
+    , `email` varchar(80) not null
+    , `address` varchar(256) null
+    , `createdAt` timestamp default current_timestamp
+    , `updatedAt` timestamp default current_timestamp
+
+) engine=innodb default charset = utf8mb4; 
+
+create table `basket` (
+	`id` int not null auto_increment primary key
+    , `userId` int not null
+    , `productId` int not null
+    , `quantity` int not null
+    , `createdAt` timestamp default current_timestamp
+    , `updatedAt` timestamp default current_timestamp
+
+) engine=innodb default charset = utf8mb4; 
+
+create table `order` (
+	`id` int not null auto_increment primary key
+    , `userId` int not null
+    , `sellerId` int not null
+    , `address` varchar(256) null
+	, `price` int not null
+    , `status` varchar(4) not null
+    , `createdAt` timestamp default current_timestamp
+    , `updatedAt` timestamp default current_timestamp
+
+) engine=innodb default charset = utf8mb4; 
+
+상품저장 테이블
+create table `product_order` (
+	`id` int not null auto_increment primary key
+	, `userId` int not null
+    , `productId` int not null
+    , `quantity` int not null
+    , `price` int not null
+    , `orderId` int not null
+	, `createdAt` timestamp default current_timestamp
+    , `updatedAt` timestamp default current_timestamp
+) engine=innodb default charset = utf8mb4; 
+
+누가 어떤거를 n개 얼마 상품번호 orderId
+
+create table `pd_qna` (
+	`id` int not null auto_increment primary key
+    , `userId` int not null
+    , `sellerId` int not null
+    , `productId` int not null
+    , `Qtitle` varchar(128) not null
+    , `Qcomment` varchar(1024) not null
+    , `Atitle` varchar(128) not null
+    , `Acomment` varchar(1024) not null
+    , `createdAt` timestamp default current_timestamp
+    , `updatedAt` timestamp default current_timestamp
+
+) engine=innodb default charset = utf8mb4; 
+
+
+create table `cs_qna` (
+	`id` int not null auto_increment primary key
+    , `userId` int not null
+    , `managerId` int not null
+    , `Qtitle` varchar(128) not null
+    , `Qcomment` varchar(1024) not null
+    , `Atitle` varchar(128) not null
+    , `Acomment` varchar(1024) not null
+    , `createdAt` timestamp default current_timestamp
+    , `updatedAt` timestamp default current_timestamp
+
+) engine=innodb default charset = utf8mb4; 
+
+create table `review` (
+	`id` int not null auto_increment primary key
+    , `userId` int not null
+    , `productId` int not null
+    , `title` varchar(128) not null
+    , `comment` varchar(1024) not null
+    , `mainImageFile` varchar(512) not null
+    , `imageFile` varchar(512) not null
+    , `createdAt` timestamp default current_timestamp
+    , `updatedAt` timestamp default current_timestamp
+
+) engine=innodb default charset = utf8mb4; 
+
+create table `notice` (
+	`id` int not null auto_increment primary key
+    , `managerId` int not null
+    , `title` varchar(128) not null
+    , `comment` varchar(1024) not null
+    , `createdAt` timestamp default current_timestamp
+    , `updatedAt` timestamp default current_timestamp
+
+) engine=innodb default charset = utf8mb4; 
